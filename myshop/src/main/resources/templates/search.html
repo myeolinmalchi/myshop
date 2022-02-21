@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: html-head"></head>
+<body>
+    <div class="container mx-auto mt-4 p-0">
+        <div th:replace="fragments/header :: header-searchbar"></div>
+    </div>
+
+    <div class="container-fluid mt-0" style="max-width:2000px">
+        <div th:replace="fragments/header :: header-categorybar"></div>
+        <div class="row mx-auto px-0 " style="width:80%">
+            <div class="col-2 border border-top-0" style="height:1500px"></div>
+
+            <div class="container col-10 border-end">
+                <div class="row-vh mt-4 mb-3 d-flex px-3">
+                    <h5 th:text="|'${name}'|" class="mb-0"></h5><h5 class="mb-0">에 대한 검색 결과</h5>
+                </div>
+                <div class="row my-2 px-3">
+                    <div></div>
+                    <div class="btn-group btn-group-sm w-auto" role="group">
+                        <a href="" class="btn btn-outline-secondary active" aria-current="page">판매량순</a>
+                        <a href="" class="btn btn-outline-secondary">가격 높은순</a>
+                        <a href="" class="btn btn-outline-secondary">가격 낮은순</a>
+                        <a href="" class="btn btn-outline-secondary">최신순</a>
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            48개씩 보기
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="" class="dropdown-item">36개씩 보기</a></li>
+                            <li><a href="" class="dropdown-item active">48개씩 보기</a></li>
+                            <li><a href="" class="dropdown-item">60개씩 보기</a></li>
+                            <li><a href="" class="dropdown-item">72개씩 보기</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row g-3 px-3 pb-3 my-auto">
+                    <div class="col-3" th:each="product : ${products}"
+                         th:with="full_star=${product.rating/2},
+                                  half_star=${product.rating%2},
+                                  empty_star=${5 - product.rating/2 - product.rating%2}">
+                        <div class="card rounded-0" th:onclick="|location.href='../product/detail/${product.productId}'|">
+                            <img th:src="|/images/${product.thumbnail}|" alt="">
+                            <div class="card-body">
+                                <h5 th:text="${product.name}" class="card-title"></h5>
+                                <p th:text="|${#numbers.formatInteger(product.price,0,'COMMA')}원|" class="card-text mb-1"></p>
+                                <p th:if="${product.rating!=0}" class="card-text">
+                                    <i th:each="num:${#numbers.sequence(1,full_star)}" class="bi bi-star-fill text-warning">
+                                    </i>
+                                    <i th:if="${half_star==1}" class="bi bi-star-half text-warning">
+                                    </i>
+                                    <i th:each="num:${#numbers.sequence(1,empty_star)}" class="bi bi-star text-warning">
+                                    </i>
+                                    <span th:text="'('+${product.reviewCount}+')'" class="text-muted"></span>
+                                </p>
+                                <p th:if="${product.rating==0}" class="card-text text-muted">리뷰 없음</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

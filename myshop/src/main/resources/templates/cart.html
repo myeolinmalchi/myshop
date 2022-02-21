@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: html-head"></head>
+<body>
+<script type="text/javascript" src="/js/deleteCart.js"></script>
+<script type="text/javascript "src="/js/checkAll.js"></script>
+<script type="text/javascript "src="/js/updateQuantity.js"></script>
+
+<!--<div class="container mt-4">
+    <div th:replace="fragments/header :: header"></div>
+</div>-->
+
+<form action="/order">
+    <div class="container mt-5 p-5">
+        <div class="row w-75 mx-auto my-3">
+            <span th:text="(${session.user!=null}?(${session.user.name}+'님의 '):('')) + '장바구니'" class="h2 w-100"></span>
+        </div>
+        <div class="row w-75" style="float:none;margin:0 auto;" th:if="${session.user != null}">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width:5%">
+                            <input id="checkAll" type="checkbox" class="form-check-input">
+                        </th>
+                        <th scope="col" style="width:59%">상품명</th>
+                        <th scope="col" style="width:15%">가격</th>
+                        <th scope="col" style="width:10%">수량</th>
+                        <th scope="col" style="width:15%">상품 금액</th>
+                        <th scope="col" style="width:5%"></th>
+                    </tr>
+                </thead>
+
+<!--            TODO
+                  - 체크한 상품 List 따로 만들어서 order에 전달 -->
+                <tbody>
+                    <tr th:each="product:${session.user.vcarts}"
+                        th:id="${product.cartId}">
+                        <th>
+                            <input type="checkbox" class="form-check-input" name="checkbox">
+                        </th>
+                        <th id="name" th:text="${product.name}"></th>
+                        <th id="price" th:text="${product.price}"></th>
+                        <th class="px-2">
+                            <div class="row w-100 mx-auto align-items-center">
+                                <input id="quantity" type="number" class="col form-control text-center p-0 me-1"
+                                       th:value="${product.quantity}">
+                                <button type="button" class="btn btn-sm btn-outline-secondary col-4 p-0"
+                                        th:onclick="|updateQuantity(${product.cartId})|">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                              d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                                        <path d="M8 4.466V.534a.25.25 0 0 1  .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </th>
+                        <th id="totPrice" th:text="${product.price * product.quantity}"></th>
+                        <th id="delete">
+                            <button id="deleteButton" type="button" class="btn-close" aria-label="Close"
+                                    th:onclick="|deleteCart(${product.cartId})|"></button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row w-75 mx-auto">
+            <div class="w-100 p-0">
+                <button type="button" class="btn btn-outline-secondary float-start" onclick="location.href='/home'">돌아가기</button>
+                <button type="submit" class="btn btn-success float-end">주문하기</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<th:box th:if="${session.userId == null}">
+
+</th:box>
+</body>
+</html>

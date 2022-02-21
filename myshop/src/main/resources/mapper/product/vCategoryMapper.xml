@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myshop.domain.product.mapper.vCategoryMapper">
+    <select id="getAllCategories" resultType="vCategory">
+        SELECT * FROM v_categories
+    </select>
+
+    <select id="getChildrens" resultType="vCategory">
+        SELECT a.*
+        FROM v_categories a INNER JOIN
+                 (SELECT * FROM v_categories WHERE code=#{code}) b
+        WHERE
+            a.code LIKE concat(b.code,'%') AND
+            a.depth>b.depth
+    </select>
+
+    <select id="getSiblings" resultType="vCategory">
+        select a.*
+        from v_categories a inner join
+                 (select * from v_categories where code=#{code}) b
+        where
+            substr(a.code,1,1) = substr(b.code,1,1) AND
+            a.depth = b.depth
+    </select>
+
+    <select id="getAllMainCategories" resultType="vCategory">
+        SELECT * FROM v_categories WHERE depth=0
+    </select>
+</mapper>

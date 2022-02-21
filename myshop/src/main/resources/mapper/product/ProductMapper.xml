@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+TODO
+ - category_id int 칼럼명, 자료형 변경 -> category_code varchar(20)
+-->
+
+<mapper namespace="com.myshop.domain.product.mapper.ProductMapper">
+    <select id="selectById" resultType="Product">
+        SELECT * FROM products WHERE product_id = #{productId}
+    </select>
+
+    <select id="selectByCategory" resultType="Product">
+        SELECT * FROM products WHERE category_code like '${code}%'
+    </select>
+
+    <select id="selectByName" resultType="Product">
+        SELECT * FROM products WHERE name like '%${name}%'
+    </select>
+
+    <select id="selectByNameWithCategory" resultType="Product">
+        SELECT * FROM products
+        WHERE name like '%${name}%' AND category_code like '${code}%'
+    </select>
+
+    <update id="update" parameterType="Product">
+        UPDATE products
+        SET name=${name}, seller_id=${sellerId}, price=${price}, category_code=${categoryCode}, detail_info=${detail_info},
+            option_a=${optionA},option_b=${optionB},option_c=${optionC},option_d=${optionD},option_e=${optionE},
+            thumbnail=${thumbnail}, review_count=${review_count}, rating=${rating}
+        WHERE product_id=${productId}
+    </update>
+
+    <update id="increaseReviewCount">
+        UPDATE products SET review_count = review_count+1
+        WHERE product_id = ${productId}
+    </update>
+
+    <update id="decreaseReviewCount">
+        UPDATE products SET review_count = review_count-1
+        WHERE product_id = ${productId}
+    </update>
+
+    <update id="increaseRating">
+        UPDATE products SET rating = rating+${rating}
+        WHERE product_id = ${productId}
+    </update>
+
+    <update id="decreaseRating">
+        UPDATE products SET rating = rating-${rating}
+        WHERE product_id = ${productId}
+    </update>
+</mapper>

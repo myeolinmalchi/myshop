@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+TODO
+ - 칼럼 option_a, ... , option_b 제거
+ - 칼럼 name 추가(상품명+옵션명)
+ -->
+
+<mapper namespace="com.myshop.domain.order.mapper.OrderDetailMapper">
+    <select id="selectById" resultType="OrderDetail">
+        SELECT * FROM order_details WHERE order_detail_id = #{id}
+    </select>
+
+    <select id="selectByOrderId" resultType="OrderDetail">
+        SELECT * FROM order_details WHERE order_id = #{orderId}
+    </select>
+
+    <insert id="insert" parameterType="OrderDetail">
+        INSERT INTO order_details(order_id, product_id, name, quantity, order_detail_status)
+        VALUES (#{orderId},#{productId},#{name},#{quantity},#{orderDetailStatus})
+    </insert>
+</mapper>

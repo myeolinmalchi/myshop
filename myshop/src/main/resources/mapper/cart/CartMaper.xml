@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myshop.domain.order.mapper.CartMapper">
+    <select id="selectByUserId" resultType="Cart">
+        SELECT * FROM carts WHERE user_id = #{userId}
+    </select>
+
+    <select id="selectById" resultType="Cart">
+        SELECT * FROM carts WHERE cart_id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="Cart">
+        INSERT INTO carts(user_id, product_id, quantity, option_a, option_b, option_c, option_d, option_e)
+        VALUES (#{userId}, #{productId}, #{quantity},#{optionA},#{optionB},#{optionC},#{optionD},#{optionE})
+    </insert>
+    <update id="update" parameterType="Cart">
+        UPDATE carts SET quantity=#{quantity}, option_a=#{optionA},option_b=#{optionB},option_c=#{optionC},option_d=#{optionD},option_e=#{optionE}
+        WHERE cart_id=#{cartId}
+    </update>
+
+    <update id="updateQuantity">
+        UPDATE carts SET quantity = #{quantity}
+        WHERE cart_id = #{cartId}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM carts
+        WHERE cart_id = #{cartId}
+    </delete>
+    <delete id="deleteByUserId">
+        DELETE FROM carts
+        WHERE user_id = #{userId}
+    </delete>
+
+</mapper>
