@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/common :: html-head"></th:block>
+    <link rel="stylesheet" href="/css/container_normal.css">
+</head>
+<body>
+<header th:replace="fragments/common :: header"></header>
+
+<div class="container mt-3">
+    <div class="row mx-auto" style="width:80%;">
+        <div class="col-1 b-1 px-2">
+            <div class="row g-1 my-auto">
+                <div class="col-12 border bg-warning" style="height:70px"></div>
+                <div class="col-12 border bg-warning" style="height:70px"></div>
+                <div class="col-12 border bg-warning" style="height:70px"></div>
+                <div class="col-12 border bg-warning" style="height:70px"></div>
+                <div class="col-12 border bg-warning" style="height:70px"></div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="row w-100 bg-warning mx-auto my-1" style="height:400px">
+
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row border-bottom">
+                <p class="ms-0 my-3 px-1 lh-1 fs-5">상품명</p>
+            </div>
+            <div class="row border-bottom">
+                <p class="ms-0 my-3 px-1 lh-1 fs-5">23,000원</p>
+            </div>
+            <div class="row border-bottom">
+                <p class="ms-0 my-3 px-1 lh-1 fs-5">판매자</p>
+            </div>
+
+            <!------------ 옵션 -------------->
+            <div class="row p-0">
+                <p class="mx-auto mb-0 mt-2 px-1 lh-1 fs-6">옵션1</p>
+                <div id="option1" class="row mx-auto px-1">
+                    <div class="d-grid gap-1 d-flex p-0 mx-auto my-2 flex-wrap">
+                        <button class="w-auto btn btn-warning">버1</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row border-bottom p-0">
+                <p class="mx-auto mb-0 mt-2 px-1 lh-1 fs-6"></p>
+                <div id="option1" class="row mx-auto px-1">
+                    <div class="d-grid gap-1 d-flex p-0 mx-auto my-2 flex-wrap">
+                        <button class="w-auto btn btn-warning">버1</button>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            </div>
+
+
+            <!------------ 옵션 -------------->
+
+            <!------------ 수량조절, 가격 -------------->
+            <div class="row border-bottom py-2">
+                <div class="input-group col">
+                    <span class="input-group-text bg-white">-</span>
+                    <input type="number" class="form-control text-center">
+                    <span class="input-group-text bg-white">+</spanhref=>
+                </div>
+                <p class="mb-0 mt-2 px-1 lh-1 fs-4 col-9 text-end">23,000원</p>
+            </div>
+            <!------------ 수량조절, 가격 -------------->
+
+            <!------------ 수량조절, 가격 -------------->
+            <div class="row py-2 d-flex gap-1 float-end">
+                <button class="w-auto btn btn-primary">장바구니 담기</button>
+                <button class="w-auto btn btn-primary">구매하기</button>
+            </div>
+            <!------------ 수량조절, 가격 -------------->
+        </div>
+    </div>
+
+    <div class="row mx-auto my-3" style="width:80%">
+        <ul class="nav nav-tabs fs-5">
+            <li class="nav-item w-25">
+                <a class="nav-link text-center text-dark active" aria-current="page" href="#">상세정보</a>
+            </li>
+            <li class="nav-item w-25">
+                <a class="nav-link text-center text-secondary" href="#">상품평</a>
+            </li>
+            <li class="nav-item w-25">
+                <a class="nav-link text-center text-secondary">상품문의</a>
+            </li>
+            <li class="nav-item w-25">
+                <a class="nav-link text-center text-secondary"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

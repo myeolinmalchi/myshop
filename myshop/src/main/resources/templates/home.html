@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: html-head"></head>
+<head>
+    <th:block th:replace="fragments/common :: html-head"></th:block>
+    <link rel="stylesheet" href="/css/container_normal.css">
+</head>
 <body>
-    <div class="container mx-auto mt-4 p-0">
-        <div th:replace="fragments/header :: header-searchbar"></div>
-        <div th:replace="fragments/header :: header-categorybar"></div>
-    </div>
+    <header th:replace="fragments/common :: header"></header>
 </body>
 </html>
