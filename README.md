@@ -15,7 +15,7 @@
 
 ## Features
 
-- User
+### User
   - Account CRUD : 유저 회원가입/탈퇴, 정보조회/수정
   - Address CRUD : 배송지 정보 추가/삭제/조회/수정
   - Validation
@@ -23,7 +23,7 @@
       - 공백 문자 검사
       - 문자열 양식 검사
 
-- Product
+### Product
   - Product CRUD : 상품 추가/삭제/조회/수정
   - Hierarchical Category : Recursive CTE를 통해 구현
 
