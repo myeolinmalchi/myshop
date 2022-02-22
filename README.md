@@ -26,5 +26,9 @@
 ### Product
   - Product CRUD : 상품 추가/삭제/조회/수정
   - Hierarchical Category : Recursive CTE를 통해 구현
+  - Review CRUD : 리뷰 작성/삭제/조회/수정
+  - QnA CRUD : 문의 작성/삭제/조회/수정
+  - Rating : 상품별 리뷰 수 및 평균 평점 조회 기능
+  - Options : 자식 테이블을 통해 상품별 옵션 및 세부 항목 구현
 
 
