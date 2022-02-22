@@ -18,10 +18,10 @@
 ### User
   - Account CRUD : 유저 회원가입/탈퇴, 정보조회/수정
   - Address CRUD : 배송지 정보 추가/삭제/조회/수정
-  - Validation
-      - 아이디/이메일 중복 검사
-      - 공백 문자 검사
-      - 문자열 양식 검사
+  - Validation<img src="https://img.shields.io/badge/jQuery-0769AD?style=flat-square&logo=jQuery&logoColor=white"/></a>
+      - 아이디/이메일 중복 검사(server-side)
+      - 공백 문자 검사(client-side)
+      - 문자열 양식 검사(client-side)
 
 ### Product
   - Product CRUD : 상품 추가/삭제/조회/수정
