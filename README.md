@@ -33,11 +33,11 @@
     - 상품별 옵션, 옵션별 세부 항목
     - 세부 항목별 재고 관리(for Seller)
 
-## Cart
+### Cart
   - Cart CRUD : 장바구니 담기/삭제/조회/수량조절
     - Cart Detail : 장바구니에 담긴 상품의 세부 옵션
 
-## Order
+### Order
   - Order CRUD : 주문 정보 추가/삭제/조회/수정
     -  Ordered Product : 한 주문에 포함된 상품 정보
       -  Ordered Product Options : 주문한 상품의 세부 옵션
