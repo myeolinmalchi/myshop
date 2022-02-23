@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService{
         if(user == null) msg.append("존재하지 않는 아이디입니다.");
         else if(!user.getUserPw().equals(userPw)) msg.append("비밀번호가 일치하지 않습니다.");
         else{
-            user.setVcarts(cartService.myvCartList(userId));
+            user.setCarts(cartService.getCartsContainOptions(userId));
             return user;
         }
 

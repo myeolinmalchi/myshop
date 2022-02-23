@@ -1,7 +1,6 @@
 package com.myshop.domain.order.mapper;
 
 import com.myshop.domain.order.entity.Cart;
-import com.myshop.domain.order.entity.vCart;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

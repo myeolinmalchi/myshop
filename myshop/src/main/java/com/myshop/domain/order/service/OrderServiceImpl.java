@@ -1,6 +1,6 @@
 package com.myshop.domain.order.service;
 
-import com.myshop.domain.order.entity.vCart;
+import com.myshop.domain.order.entity.Cart;
 import com.myshop.domain.order.entity.Order;
 import com.myshop.domain.order.entity.OrderDetail;
 import com.myshop.domain.order.mapper.OrderDetailMapper;
@@ -23,29 +23,29 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public void orderOneProduct(vCart vCart) {
-        Order order = new Order(vCart.getUserId(), 0);
+    public void orderOneProduct(Cart cart) {
+        Order order = new Order(cart.getUserId(), 0);
         orderMapper.insert(order);
-        orderDetailMapper.insert(cartToOrderDetail(order.getOrderId(), vCart));
+        orderDetailMapper.insert(cartToOrderDetail(order.getOrderId(), cart));
     }
 
     @Override
-    public void orderProducts(List<vCart> vCartList) {
-        Order order = new Order(vCartList.get(0).getUserId(), 0);
+    public void orderProducts(List<Cart> cartList) {
+        Order order = new Order(cartList.get(0).getUserId(), 0);
         orderMapper.insert(order);
         System.out.println(order.getOrderId());
-        vCartList.stream()
+        cartList.stream()
                 .map(c -> cartToOrderDetail(order.getOrderId(), c))
                 .forEach(orderDetailMapper::insert);
     }
 
     @Override
-    public OrderDetail cartToOrderDetail(int orderId, vCart vCart) {
+    public OrderDetail cartToOrderDetail(int orderId, Cart cart) {
         return new OrderDetail(
             orderId,
-            vCart.getProductId(),
-            vCart.getName(),
-            vCart.getQuantity(),
+            cart.getProductId(),
+            cart.getName(),
+            cart.getQuantity(),
             0
         );
     }

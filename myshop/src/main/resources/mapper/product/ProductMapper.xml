@@ -28,7 +28,6 @@ TODO
     <update id="update" parameterType="Product">
         UPDATE products
         SET name=${name}, seller_id=${sellerId}, price=${price}, category_code=${categoryCode}, detail_info=${detail_info},
-            option_a=${optionA},option_b=${optionB},option_c=${optionC},option_d=${optionD},option_e=${optionE},
             thumbnail=${thumbnail}, review_count=${review_count}, rating=${rating}
         WHERE product_id=${productId}
     </update>

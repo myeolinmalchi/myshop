@@ -16,16 +16,7 @@ public interface ProductMapper {
     List<Product> selectByNameWithCategory(String name, String code);
     List<Product> selectByName(String name);
 
-//  List<Product> selectByNameWithCategoryHasLimit(String name, String code, int limit);
-
     void update(Product product);
-//    void updateById(@Param("productId") int productId,
-//                    @Param("column") String column,
-//                    @Param("value")String value);
-//
-//    void updateById(@Param("productId") int productId,
-//                    @Param("column") String column,
-//                    @Param("value") int value);
 
     void increaseReviewCount(int productId);
     void decreaseReviewCount(int productId);

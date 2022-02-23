@@ -4,6 +4,14 @@
 
 <mapper namespace="com.myshop.domain.product.mapper.ProductOptionMapper">
     <select id="selectById" resultType="ProductOption">
+        SELECT * FROM product_options WHERE product_option_id = #{id}
+    </select>
+
+    <select id="selectByProductId" resultType="ProductOption">
+        SELECT * FROM product_options WHERE product_id = #{productId}
+    </select>
+
+    <select id="selectByProduct" parameterType="Product" resultType="ProductOption">
         SELECT * FROM product_options WHERE product_id = #{productId}
     </select>
 </mapper>

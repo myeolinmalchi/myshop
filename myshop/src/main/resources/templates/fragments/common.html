@@ -43,7 +43,7 @@
                 장바구니
                 <span th:if="${session.user != null}"
                       class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        <span th:text="${session.user.vcarts.size}"></span>
+                        <span th:text="${session.user.carts.size}"></span>
                         <span class="visually-hidden">unread messages</span>
                     </span>
             </button>

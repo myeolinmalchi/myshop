@@ -1,17 +1,12 @@
 package com.myshop;
 
-import com.myshop.domain.order.entity.Cart;
 import com.myshop.domain.order.entity.Order;
-import com.myshop.domain.order.entity.vCart;
 import com.myshop.domain.order.mapper.CartMapper;
-import com.myshop.domain.order.mapper.vCartMapper;
 import com.myshop.domain.order.service.CartService;
 import com.myshop.domain.order.mapper.OrderDetailMapper;
 import com.myshop.domain.order.mapper.OrderMapper;
 import com.myshop.domain.order.service.OrderService;
 import com.myshop.domain.product.entity.Product;
-import com.myshop.domain.product.entity.ProductOption;
-import com.myshop.domain.product.entity.QnA;
 import com.myshop.domain.product.entity.Review;
 import com.myshop.domain.product.mapper.*;
 import com.myshop.domain.product.service.ReviewService;
@@ -26,9 +21,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 @SpringBootTest
 @WebAppConfiguration
@@ -105,7 +98,6 @@ class MyshopApplicationTests {
     @Autowired CartMapper cartMapper;
     @Autowired CartService cartService;
     @Autowired
-    vCartMapper vCartMapper;
 
     @Test void cartDomainTest(){
 //        cartMapper.update(new Cart("minsuk4820",1,1,1));
@@ -120,8 +112,6 @@ class MyshopApplicationTests {
 //        String a = cartMapper.selectCartid(4);
 //        System.out.println(a);
 //        List<vCart> cart = cartMapper.selectvCartByUserId("rkd2274");
-        List<vCart> vCarts = vCartMapper.selectByUserId("rkd2274");
-        vCarts.forEach(System.out::println);
 
 //        orderService.orderProducts(cartService.myCartList("minsuk4820"));
     }

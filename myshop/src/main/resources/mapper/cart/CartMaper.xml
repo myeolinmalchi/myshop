@@ -12,11 +12,11 @@
     </select>
 
     <insert id="insert" parameterType="Cart">
-        INSERT INTO carts(user_id, product_id, quantity, option_a, option_b, option_c, option_d, option_e)
-        VALUES (#{userId}, #{productId}, #{quantity},#{optionA},#{optionB},#{optionC},#{optionD},#{optionE})
+        INSERT INTO carts(user_id, product_id, quantity)
+        VALUES (#{userId}, #{productId}, #{quantity})
     </insert>
     <update id="update" parameterType="Cart">
-        UPDATE carts SET quantity=#{quantity}, option_a=#{optionA},option_b=#{optionB},option_c=#{optionC},option_d=#{optionD},option_e=#{optionE}
+        UPDATE carts SET quantity=#{quantity}
         WHERE cart_id=#{cartId}
     </update>
 

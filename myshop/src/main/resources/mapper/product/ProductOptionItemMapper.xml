@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myshop.domain.product.mapper.ProductOptionItemMapper">
+    <select id="selectById" resultType="ProductOptionItem">
+        SELECT * FROM product_option_items WHERE product_option_item_id = #{id}
+    </select>
+
+    <select id="selectByProductOptionId" resultType="ProductOptionItem">
+        SELECT * FROM product_option_items WHERE product_option_id = #{optionId}
+    </select>
+
+    <select id="selectByProductOption" resultType="ProductOptionItem">
+        SELECT * FROM product_option_items WHERE product_option_id = #{optionId}
+    </select>
+</mapper>

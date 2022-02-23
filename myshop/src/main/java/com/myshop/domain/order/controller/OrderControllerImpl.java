@@ -1,6 +1,6 @@
 package com.myshop.domain.order.controller;
 
-import com.myshop.domain.order.entity.vCart;
+import com.myshop.domain.order.entity.Cart;
 import com.myshop.domain.order.service.OrderService;
 import com.myshop.domain.product.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class OrderControllerImpl {
     @PostMapping("order.do")
     public String order(HttpServletRequest request, Model model){
         HttpSession session = request.getSession();
-        List<vCart> products = (List<vCart>)model.getAttribute("products");
+        List<Cart> products = (List<Cart>)model.getAttribute("products");
         orderService.orderProducts(products);
         return null;
     }

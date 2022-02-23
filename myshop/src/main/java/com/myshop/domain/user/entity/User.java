@@ -1,6 +1,6 @@
 package com.myshop.domain.user.entity;
 
-import com.myshop.domain.order.entity.vCart;
+import com.myshop.domain.order.entity.Cart;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +19,5 @@ public class User {
     private Date regdate;
 
     private List<UserAddress> addresses;
-    private List<vCart> vcarts;
+    private List<Cart> carts;
 }
